@@ -69,16 +69,26 @@ document.addEventListener("DOMContentLoaded", () => {
   //   });
   // }
 
-  // const tl_dresscode = gsap.timeline({
-  //   repeatDelay: 0,  // delay giữa các lần lặp
-  //   defaults: { duration: .8, ease: "power2.out" }, // giá trị mặc định
-  //   scrollTrigger: {
-  //     trigger: ".color-grid",
-  //     start: "top 85%", // khi phần tử xuất hiện 80% trong viewport
-  //   }
-  // });
+  const tlDresscode = gsap.timeline({
+    repeatDelay: 0,
+    defaults: { duration: 2, ease: "power2.out" },
+    scrollTrigger: {
+      trigger: ".color-grid",
+      start: "top 80%",
+      toggleActions: "play none none reverse",
+    }
+  });
 
-  // // Thêm các animation theo thứ tự
+  tlDresscode.from(".color-circle", {
+    opacity: 0,
+    scale: 0.6,
+    y: 20,
+    duration: 2,
+    ease: "back.out(1.6)",
+    stagger: 0.12
+  });
+
+  // Thêm các animation theo thứ tự
   // tl_dresscode.from(".first", { x: -100, opacity: 0 })        // box đỏ bay xuống
   //   .from(".second", { x: -100, opacity: 0 }, "-=0.3")       // box xanh bay từ trái
   //   .from(".third", { x: -100, opacity: 0 }, "-=0.3")       // box xanh bay từ trái

@@ -513,7 +513,6 @@ header {
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
-  transition: transform 0.3s ease;
   margin-left: -1%;
 }
 .dresscode .content .color-grid .color-circle:first-child {
