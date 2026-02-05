@@ -70,13 +70,13 @@
                 }
                
                 &:nth-child(2) {
+                    width: 100%;
                     aspect-ratio: 500 / 250;
                     .col {
                         width: 100%;
-                        height: auto;
+                        aspect-ratio: 500 / 250;
                     }
                 }
-               
             }
         }
     }
