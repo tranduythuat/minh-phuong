@@ -19,6 +19,10 @@
 
     .title {
         margin-bottom: 3%;
+        &.vi {
+            font-size: 45px;
+            line-height: 1;
+        }
     }
     
     .timeline-items {
@@ -78,6 +82,11 @@
     }
 
     @media (max-width: 500px) {
+        .title {
+            &.vi {
+                font-size: calc((45 / 500) * 100vw);
+            }
+        }
         .timeline-items {
             .item {
                 .icon {

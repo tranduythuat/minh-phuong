@@ -234,6 +234,7 @@ header {
   font-family: "SVN-Gotham", sans-serif;
   margin-bottom: 10%;
   line-height: 1.5;
+  text-transform: uppercase;
 }
 .hero .content .subtext span {
   font-family: "SVN-GothamLight", sans-serif;
@@ -413,6 +414,10 @@ header {
 .timeline .title {
   margin-bottom: 3%;
 }
+.timeline .title.vi {
+  font-size: 45px;
+  line-height: 1;
+}
 .timeline .timeline-items {
   width: 100%;
   max-width: 488px;
@@ -458,6 +463,9 @@ header {
   max-width: 22px;
 }
 @media (max-width: 500px) {
+  .timeline .title.vi {
+    font-size: 9vw;
+  }
   .timeline .timeline-items .item .icon {
     max-width: 5.4vw;
   }
@@ -499,6 +507,10 @@ header {
   font-family: "SVN-GothamBook", sans-serif;
   font-size: 10px;
   line-height: 1.8;
+  text-transform: uppercase;
+}
+.dresscode .content .subtext .bold {
+  font-family: "SVN-gothamBold", sans-serif;
 }
 .dresscode .content .color-grid {
   display: flex;
@@ -571,9 +583,10 @@ header {
   margin-bottom: 8%;
 }
 .our-story .content .quote-text {
-  font-size: 16px;
+  font-size: 22px;
   color: #231f20;
-  font-family: "SVN-GothamBook", sans-serif;
+  font-family: "MTD Doppelganger", sans-serif;
+  letter-spacing: 1px;
 }
 .our-story .content .story-section .quote-icon {
   margin-bottom: 3%;
@@ -633,7 +646,7 @@ header {
 }
 @media (max-width: 500px) {
   .our-story .content .quote-text {
-    font-size: 3.2vw;
+    font-size: 4.4vw;
   }
   .our-story .content .story-section .quote-icon img {
     max-width: 9.4vw;

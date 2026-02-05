@@ -24,6 +24,10 @@
             font-family: $font-GothamBook;
             font-size: 10px;
             line-height: 1.8;
+            text-transform: uppercase;
+            .bold {
+                font-family: $font-gothamBold;
+            }
         }
         
 
