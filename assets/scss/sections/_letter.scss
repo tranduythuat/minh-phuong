@@ -1,0 +1,90 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.letter-section {
+    width: 100%;
+    max-width: 500px;
+    .content {
+        width: 100%;
+        aspect-ratio: 500 / 887;
+        background: url('https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/minh-phuong/letter.webp') no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #eae0cfff;
+        font-family: $font-GothamBook;
+        box-shadow:  0 10px 20px rgba(0, 0, 0, 0.439);
+        position: relative;
+        cursor: pointer;
+        .couple-names {
+            margin-bottom: 18%;
+            img {
+                max-width: 376px;
+                width: 100%;
+                height: auto;
+            }
+        }
+        .subtext {
+            margin-bottom: 5%;
+            .icon {
+                @include flex-center;
+                margin-bottom: 4%;
+                img {
+                    max-width: 25px;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .text {
+                font-size: 9.11px;
+                text-align: center;
+            }
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            gap: 3%;
+            button {
+                width: 30%;
+                display: block;
+                background-color: #eae0cfff;
+                outline: none;
+                padding:  1.5%;
+                color: $title-color;
+                border-radius: 20px;
+                text-decoration: none;
+                border: none;
+                text-transform: uppercase;
+                font-size: 9.11px;
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            .couple-names {
+                font-size: calc((20 / 500) * 100vw);
+                letter-spacing: calc((2 / 500) * 100vw);
+                span {
+                    font-size: calc((14 / 500) * 100vw);
+                }
+            }
+    
+            .date {
+                font-size: calc((12 / 500) * 100vw);
+                letter-spacing: calc((1 / 500) * 100vw);
+            }
+
+            .loveanyway {
+                img {
+                    max-width: calc((165 / 500) * 100vw);
+                }
+            }
+        }
+    }
+}

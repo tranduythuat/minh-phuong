@@ -1,0 +1,112 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.timeline {
+    width: 100%;
+    .content {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 500 / 630;
+        background: url('../../assets/images/timeline_bg.png') no-repeat center / 98%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        font-family: $font-GothamBook;
+        color: $text-color;
+        margin-top: 15%;
+    }
+
+    .title {
+        margin-bottom: 3%;
+    }
+    
+    .timeline-items {
+        width: 100%;
+        max-width: 488px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 9%;
+        .item {
+            @include flex-center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 3%;
+            .icon {
+                max-width: 27px;
+                width: 100%;
+                margin-bottom: .5%;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .text-box {
+                p {
+                    font-family: $font-GothamBook;
+                    text-transform: uppercase;
+                    margin-bottom: 3% ;
+                    font-size: 12px;
+                    line-height: 1;
+                }
+                p.time-and-title {
+                    span {
+                        font-family: $font-gothamBold;
+                    }
+                }
+            }
+        }
+
+        .item:nth-child(2) {
+            .icon {
+                max-width: 32px;
+            }
+        }
+
+        .item:nth-child(4) {
+            .icon {
+                max-width: 20px;
+            }
+        }
+
+        .item:nth-child(5) {
+            .icon {
+                max-width: 22px;
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .timeline-items {
+            .item {
+                .icon {
+                    max-width: calc((27 / 500) * 100vw);
+                }
+                .text-box {
+                    p {
+                        font-size: calc((12 / 500) * 100vw);
+                    }
+                }
+            }
+    
+            .item:nth-child(2) {
+                .icon {
+                    max-width: calc((30 / 500) * 100vw);
+                }
+            }
+    
+            .item:nth-child(4) {
+                .icon {
+                    max-width: calc((20 / 500) * 100vw);
+                }
+            }
+    
+            .item:nth-child(5) {
+                .icon {
+                    max-width: calc((22 / 500) * 100vw);
+                }
+            }
+        }
+    }
+}

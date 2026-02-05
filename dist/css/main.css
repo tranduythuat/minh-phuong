@@ -1,0 +1,1170 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "SVN-Gotham";
+  src: url("../../assets/fonts/SVN-Gotham.woff2") format("woff2"), url("../../assets/fonts/SVN-Gotham.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SVN-GothamBold";
+  src: url("../../assets/fonts/SVN-GothamBold.woff2") format("woff2"), url("../../assets/fonts/SVN-GothamBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SVN-GothamLight";
+  src: url("../../assets/fonts/SVN-GothamLight.woff2") format("woff2"), url("../../assets/fonts/SVN-GothamLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SVN-GothamBook";
+  src: url("../../assets/fonts/SVN-GothamBook.woff2") format("woff2"), url("../../assets/fonts/SVN-GothamBook.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SVN-GothamBookItalic";
+  src: url("../../assets/fonts/SVN-GothamBookItalic.woff2") format("woff2"), url("../../assets/fonts/SVN-GothamBookItalic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Hikary";
+  src: url("../../assets/fonts/1FTV-Eastin-Hikary.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MTD Portrait";
+  src: url("../../assets/fonts/MTD-Portrait-Script-Bounce.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "MTD Doppelganger";
+  src: url("../../assets/fonts/MTD-Doppelganger-Display.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SVN-Gilroy-Bold";
+  src: url("../../assets/fonts/SVN-Gilroy-Bold.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "UVN Buc Thu";
+  src: url("../../assets/fonts/UVN Buc Thu.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin: 0;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  max-width: 500px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #eae0cf;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.482);
+  color: #5e0d10;
+}
+
+/* music */
+.player {
+  position: fixed;
+  bottom: 10px;
+  right: 1%;
+  max-width: 55px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  z-index: 9999;
+  border: 1px solid var(--text-title-color);
+}
+
+.player #iconSvg {
+  width: 100%;
+  height: 100%;
+  fill: var(--text-title-color);
+}
+
+.spin {
+  animation: spin 4s linear infinite;
+}
+
+.text-title {
+  font-size: 58px;
+  color: #5e0d10;
+  font-family: "UVN Buc Thu", sans-serif;
+  font-weight: 300;
+}
+
+/* Định nghĩa hoạt ảnh xoay */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 500px) {
+  .player {
+    max-width: 11vw;
+  }
+  .text-title {
+    font-size: 11.6vw;
+  }
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eae0cf;
+  color: white;
+  padding: 1rem;
+}
+
+.image-wrapper {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+}
+.image-wrapper img {
+  width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.animate-flip, .animate-flip-yoyo {
+  transform-origin: left center;
+  transform: rotateY(-120deg) scale(0.9);
+  opacity: 0;
+  filter: brightness(0.6);
+  backface-visibility: hidden;
+  transition: none;
+}
+
+.animate-flip.active, .animate-flip-yoyo.active {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  top: 100px;
+  border-radius: 12px;
+}
+
+.red {
+  background: #e74c3c;
+}
+
+.blue {
+  background: #3498db;
+}
+
+.green {
+  background: #2ecc71;
+}
+
+.hero {
+  width: 100%;
+}
+.hero .content {
+  aspect-ratio: 500/747;
+  background: linear-gradient(to bottom, rgba(234, 224, 207, 0), rgba(234, 224, 207, 0.181), #eae0cf), url("https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/minh-phuong/hero.jpg") no-repeat center/cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  perspective: 1000px;
+}
+.hero .content .main-text {
+  font-size: 104px;
+  font-family: "MTD Doppelganger", sans-serif;
+}
+.hero .content .divider {
+  margin: 1% 0 5%;
+}
+.hero .content .divider img {
+  max-width: 12px;
+  width: 100%;
+  height: auto;
+}
+.hero .content .subtext {
+  font-size: 13px;
+  color: #231f20;
+  font-family: "SVN-Gotham", sans-serif;
+  margin-bottom: 10%;
+  line-height: 1.5;
+}
+.hero .content .subtext span {
+  font-family: "SVN-GothamLight", sans-serif;
+}
+@media (max-width: 500px) {
+  .hero .content .main-text {
+    font-size: 20.8vw;
+  }
+  .hero .content .divider img {
+    max-width: 2.4vw;
+  }
+  .hero .content .subtext {
+    font-size: 2.6vw;
+  }
+}
+
+.invite {
+  width: 100%;
+}
+.invite .content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "SVN-GothamBook", sans-serif;
+  padding-top: 5%;
+  padding-bottom: 15%;
+}
+.invite .content .names-block {
+  font-family: "UVN Buc Thu", sans-serif;
+  font-size: 64px;
+  line-height: 0.8;
+}
+.invite .content .location-block {
+  width: 100%;
+  margin-top: 15%;
+}
+.invite .content .location-block .datetime-block .label {
+  margin-bottom: 2%;
+  font-size: 10px;
+  color: #231f20;
+}
+.invite .content .location-block .datetime-block .time {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 27px;
+}
+.invite .content .location-block .divider {
+  margin: 7% 0 2%;
+}
+.invite .content .location-block .divider img {
+  max-width: 20px;
+  width: 100%;
+  height: auto;
+}
+.invite .content .location-block .name {
+  font-size: 58px;
+  font-family: "UVN Buc Thu", sans-serif;
+  font-weight: 300;
+}
+.invite .content .location-block .address {
+  font-size: 10px;
+  color: #231f20;
+  font-family: "SVN-GothamBook", sans-serif;
+  font-style: italic;
+  margin-top: 1%;
+}
+.invite .content .location-block .btn-wrap {
+  margin-top: 4%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.invite .content .location-block .btn-wrap .map-btn {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  font-family: "SVN-Gilroy-Bold", sans-serif;
+  width: 158px;
+  padding: 1% 0;
+  background-color: #5e0d10;
+  border-radius: 15px;
+}
+@media (max-width: 500px) {
+  .invite .content .ivitation-img {
+    max-width: 64.6vw;
+  }
+  .invite .content .names-block {
+    font-size: 12.8vw;
+  }
+  .invite .content .location-block .datetime-block .label {
+    font-size: 2vw;
+  }
+  .invite .content .location-block .datetime-block .time {
+    font-size: 5.4vw;
+  }
+  .invite .content .location-block .divider img {
+    max-width: 4vw;
+  }
+  .invite .content .location-block .name {
+    font-size: 11.6vw;
+  }
+  .invite .content .location-block .address {
+    font-size: 2vw;
+  }
+  .invite .content .location-block .btn-wrap .map-btn {
+    font-size: 2.4vw;
+    width: 31.6vw;
+  }
+}
+
+.couple-block {
+  width: 100%;
+}
+.couple-block .content {
+  width: 100%;
+  background: url("https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/minh-phuong/bg_01.webp") no-repeat top/contain;
+  aspect-ratio: 500/380;
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+}
+.couple-block .content .main-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.couple-block .content .main-img img {
+  max-width: 216px;
+  width: 100%;
+  height: auto;
+}
+.couple-block .content .main-img .text-block {
+  position: absolute;
+  bottom: 6%;
+  font-family: "SVN-GothamLight", sans-serif;
+  color: #1d1e1e;
+}
+.couple-block .content .main-img .text-block .couple-name {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+.couple-block .content .main-img .text-block .date {
+  font-size: 10px;
+}
+@media (max-width: 500px) {
+  .couple-block .content .main-img img {
+    max-width: 43.2vw;
+  }
+  .couple-block .content .main-img .text-block .couple-name {
+    font-size: 2vw;
+  }
+  .couple-block .content .main-img .text-block .date {
+    font-size: 2vw;
+  }
+}
+
+.timeline {
+  width: 100%;
+}
+.timeline .content {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 500/630;
+  background: url("../../assets/images/timeline_bg.png") no-repeat center/98%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  font-family: "SVN-GothamBook", sans-serif;
+  color: #231f20;
+  margin-top: 15%;
+}
+.timeline .title {
+  margin-bottom: 3%;
+}
+.timeline .timeline-items {
+  width: 100%;
+  max-width: 488px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 9%;
+}
+.timeline .timeline-items .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 3%;
+}
+.timeline .timeline-items .item .icon {
+  max-width: 27px;
+  width: 100%;
+  margin-bottom: 0.5%;
+}
+.timeline .timeline-items .item .icon img {
+  width: 100%;
+  height: auto;
+}
+.timeline .timeline-items .item .text-box p {
+  font-family: "SVN-GothamBook", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 3%;
+  font-size: 12px;
+  line-height: 1;
+}
+.timeline .timeline-items .item .text-box p.time-and-title span {
+  font-family: "SVN-gothamBold", sans-serif;
+}
+.timeline .timeline-items .item:nth-child(2) .icon {
+  max-width: 32px;
+}
+.timeline .timeline-items .item:nth-child(4) .icon {
+  max-width: 20px;
+}
+.timeline .timeline-items .item:nth-child(5) .icon {
+  max-width: 22px;
+}
+@media (max-width: 500px) {
+  .timeline .timeline-items .item .icon {
+    max-width: 5.4vw;
+  }
+  .timeline .timeline-items .item .text-box p {
+    font-size: 2.4vw;
+  }
+  .timeline .timeline-items .item:nth-child(2) .icon {
+    max-width: 6vw;
+  }
+  .timeline .timeline-items .item:nth-child(4) .icon {
+    max-width: 4vw;
+  }
+  .timeline .timeline-items .item:nth-child(5) .icon {
+    max-width: 4.4vw;
+  }
+}
+
+.dresscode {
+  width: 100%;
+  aspect-ratio: 500/350;
+}
+.dresscode .content {
+  width: 100%;
+}
+.dresscode .content .cats-box {
+  margin-top: 4%;
+}
+.dresscode .content .cats-box img {
+  max-width: 215px;
+  width: 100%;
+  height: auto;
+}
+.dresscode .content .title {
+  line-height: 1;
+  margin-bottom: 3%;
+}
+.dresscode .content .subtext {
+  color: #231f20;
+  font-family: "SVN-GothamBook", sans-serif;
+  font-size: 10px;
+  line-height: 1.8;
+}
+.dresscode .content .color-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5% auto 14%;
+  width: 100%;
+  transform: translateX(1%);
+}
+.dresscode .content .color-grid .color-circle {
+  max-width: 36px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  margin-left: -1%;
+}
+.dresscode .content .color-grid .color-circle:first-child {
+  margin-left: 0;
+}
+.dresscode .content .couple-imgs {
+  width: 100%;
+}
+.dresscode .content .couple-imgs .row {
+  display: flex;
+  perspective: 1000px;
+}
+.dresscode .content .couple-imgs .row .col {
+  width: 50%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+.dresscode .content .couple-imgs .row .col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dresscode .content .couple-imgs .row:nth-child(2) {
+  aspect-ratio: 500/250;
+}
+.dresscode .content .couple-imgs .row:nth-child(2) .col {
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 500px) {
+  .dresscode .content .cats-box img {
+    max-width: 43vw;
+  }
+  .dresscode .content .subtext {
+    font-size: 2vw;
+  }
+  .dresscode .content .color-grid .color-circle {
+    max-width: 7.2vw;
+  }
+  .dresscode .content .couple-img {
+    max-width: 78.8vw;
+  }
+  .dresscode .content .couple-img img {
+    object-position: -11.4vw 14%;
+  }
+}
+
+.our-story {
+  width: 100%;
+}
+.our-story .content {
+  width: 100%;
+  padding: 10% 8%;
+}
+.our-story .content .title {
+  margin-bottom: 8%;
+}
+.our-story .content .quote-text {
+  font-size: 16px;
+  color: #231f20;
+  font-family: "SVN-GothamBook", sans-serif;
+}
+.our-story .content .story-section .quote-icon {
+  margin-bottom: 3%;
+}
+.our-story .content .story-section .quote-icon img {
+  max-width: 47px;
+  width: 100%;
+  height: auto;
+}
+.our-story .content .story-section .quote-text {
+  font-family: "SVN-GothamLight", sans-serif;
+  font-size: 13px;
+  color: #231f20;
+  margin-bottom: 3%;
+  line-height: 1.5;
+}
+.our-story .content .story-section .img-grid {
+  display: flex;
+  gap: 1%;
+}
+.our-story .content .story-section .img-grid img {
+  width: 100%;
+  height: auto;
+}
+.our-story .content .story-section:first-of-type {
+  margin-bottom: 10%;
+}
+.our-story .content .story-section:first-of-type .quote-icon {
+  text-align: left;
+}
+.our-story .content .story-section:first-of-type .quote-text {
+  text-align: left;
+}
+.our-story .content .story-section:first-of-type .img-grid .img-wrapper:first-child {
+  max-width: 238px;
+}
+.our-story .content .story-section:first-of-type .img-grid .img-wrapper:last-child {
+  max-width: 106px;
+}
+.our-story .content .story-section:last-of-type .quote-icon {
+  text-align: right;
+}
+.our-story .content .story-section:last-of-type .quote-icon img {
+  transform: scaleX(-1);
+}
+.our-story .content .story-section:last-of-type .quote-text {
+  text-align: right;
+}
+.our-story .content .story-section:last-of-type .img-grid {
+  justify-content: flex-end;
+}
+.our-story .content .story-section:last-of-type .img-grid .img-wrapper:first-child {
+  max-width: 156px;
+}
+.our-story .content .story-section:last-of-type .img-grid .img-wrapper:last-child {
+  max-width: 156px;
+}
+@media (max-width: 500px) {
+  .our-story .content .quote-text {
+    font-size: 3.2vw;
+  }
+  .our-story .content .story-section .quote-icon img {
+    max-width: 9.4vw;
+  }
+  .our-story .content .story-section .quote-text {
+    font-size: 2.6vw;
+  }
+  .our-story .content .story-section:first-of-type .img-grid .img-wrapper:first-child {
+    max-width: 47.6vw;
+  }
+  .our-story .content .story-section:first-of-type .img-grid .img-wrapper:last-child {
+    max-width: 21.2vw;
+  }
+  .our-story .content .story-section:last-of-type .img-grid .img-wrapper:first-child {
+    max-width: 31.2vw;
+  }
+  .our-story .content .story-section:last-of-type .img-grid .img-wrapper:last-child {
+    max-width: 31.2vw;
+  }
+}
+
+.album {
+  width: 100%;
+}
+.album .content {
+  width: 100%;
+}
+.album .content .title {
+  margin: 10% 0 7%;
+}
+.album .content .swiper {
+  width: 100%;
+  aspect-ratio: 500/752;
+  margin: 0 auto;
+  padding-bottom: 10%;
+}
+.album .content .swiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.album .content .swiper .swiper-button-next,
+.album .content .swiper .swiper-button-prev {
+  color: white;
+}
+.album .content .swiper .swiper-pagination-bullet-active {
+  background: #34393d;
+}
+.album .content .swiper .swiper-pagination-bullet {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+@media (max-width: 500px) {
+  .album .content h2 {
+    font-size: 9vw;
+  }
+  .album .content .swiper .swiper-button-next:after,
+  .album .content .swiper .swiper-button-prev:after {
+    font-size: 8.8vw;
+  }
+  .album .content .swiper .swiper-pagination-bullet {
+    width: 3.2vw;
+    height: 3.2vw;
+  }
+}
+
+.swiper {
+  margin: 0 auto;
+  padding: 0 0 10% !important;
+}
+
+.rsvp {
+  width: 100%;
+  background: url("../../assets/images/rsvp_bg.png") no-repeat bottom right/52%;
+}
+.rsvp .content {
+  width: 100%;
+  font-family: "SVN-GothamBook", sans-serif;
+  color: #231f20;
+}
+.rsvp .content .header img.decoration {
+  width: 174px;
+  height: auto;
+  margin: 10% 0 5%;
+}
+.rsvp .content .header .title {
+  font-family: "UVN Buc Thu", sans-serif;
+  font-size: 50px;
+  color: #5e0d10;
+  font-weight: 300;
+}
+.rsvp .content .header p {
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+.rsvp .content .header p.lead {
+  margin: 5% 0 3%;
+}
+.rsvp .content .header .divider {
+  margin-bottom: 3%;
+}
+.rsvp .content .header .divider img {
+  max-width: 12px;
+  width: 100%;
+  height: auto;
+}
+.rsvp .content .rsvp-form {
+  display: block;
+  padding: 5% 9%;
+}
+.rsvp .content .rsvp-form .divider-line {
+  margin-top: 5%;
+  margin-bottom: 8%;
+}
+.rsvp .content .rsvp-form .divider-line img {
+  width: 100%;
+  height: auto;
+}
+.rsvp .content .rsvp-form .button-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6%;
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .button-group .radio-wrapper {
+  position: relative;
+}
+.rsvp .content .rsvp-form .button-group .radio-wrapper input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.rsvp .content .rsvp-form .button-group .radio-label {
+  display: block;
+  padding: 4%;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  text-align: center;
+  border: 2px solid #5e0d10;
+  color: #5e0d10;
+  font-size: 10.6px;
+  line-height: 1;
+}
+.rsvp .content .rsvp-form .button-group .radio-label:hover {
+  background: #5e0d10;
+}
+.rsvp .content .rsvp-form .button-group .radio-wrapper input[type=radio]:checked + .radio-label {
+  background: #5e0d10;
+  color: white;
+}
+.rsvp .content .rsvp-form .form-group {
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .form-group input[type=text],
+.rsvp .content .rsvp-form .form-group input[type=number],
+.rsvp .content .rsvp-form .form-group textarea {
+  font-family: "SVN-GothamBook", sans-serif;
+  width: 100%;
+  padding: 2% 3%;
+  border-radius: 8px;
+  border: 2px solid #5e0d10;
+  background: transparent;
+  font-size: 10px;
+  color: #231f20;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.rsvp .content .rsvp-form .form-group input[type=text]:focus,
+.rsvp .content .rsvp-form .form-group input[type=number]:focus,
+.rsvp .content .rsvp-form .form-group textarea:focus {
+  outline: none;
+}
+.rsvp .content .rsvp-form .form-group textarea {
+  aspect-ratio: 500/120;
+  resize: vertical;
+  font-family: inherit;
+}
+.rsvp .content .rsvp-form .form-group textarea::placeholder {
+  white-space: pre-line; /* Cho phép hiển thị xuống dòng trong placeholder */
+}
+.rsvp .content .rsvp-form .form-group.guest-number {
+  display: flex;
+  justify-content: space-between;
+}
+.rsvp .content .rsvp-form .form-group.guest-number label {
+  width: 35%;
+}
+.rsvp .content .rsvp-form .form-group.guest-number input {
+  width: 62%;
+}
+.rsvp .content .rsvp-form .form-group.dietary {
+  margin: 8% 0 2%;
+}
+.rsvp .content .rsvp-form .form-group.dietary .dietary-label {
+  font-size: 15px;
+  font-family: "SVN-GothamLight", sans-serif;
+  margin-bottom: 4%;
+}
+.rsvp .content .rsvp-form .form-group.another {
+  margin-bottom: 8%;
+}
+.rsvp .content .rsvp-form .message {
+  text-align: center;
+  margin: 10% 0 4%;
+}
+.rsvp .content .rsvp-form .message p {
+  margin-bottom: 2%;
+}
+.rsvp .content .rsvp-form .submit-btn {
+  width: 39%;
+  padding: 2% 0;
+  background: #5e0d10;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+  margin: 5% 0 10%;
+}
+.rsvp .content .rsvp-form .submit-btn:hover {
+  background: rgb(128, 47, 85);
+  opacity: 0.9;
+}
+.rsvp .content .rsvp-form .submit-btn:active {
+  transform: scale(0.98);
+}
+.rsvp .text-size-10 {
+  font-size: 10.6px;
+}
+.rsvp .text-size-8 {
+  font-size: 8px;
+}
+@media (max-width: 500px) {
+  .rsvp .content .header img.decoration {
+    width: 34.8vw;
+  }
+  .rsvp .content .header .title {
+    font-size: 10vw;
+  }
+  .rsvp .content .header .divider img {
+    max-width: 2.4vw;
+  }
+  .rsvp .content .text-size-10 {
+    font-size: 2.12vw;
+  }
+  .rsvp .content .rsvp-form .button-group .radio-label {
+    font-size: 2.12vw;
+  }
+  .rsvp .content .rsvp-form .form-group input[type=text],
+  .rsvp .content .rsvp-form .form-group input[type=number],
+  .rsvp .content .rsvp-form .form-group textarea {
+    font-size: 2vw;
+  }
+  .rsvp .content .rsvp-form .form-group.dietary .dietary-label {
+    font-size: 3vw;
+  }
+  .rsvp .content .rsvp-form .submit-btn {
+    font-size: 3vw;
+  }
+}
+
+.button-links {
+  width: 100%;
+}
+.button-links .content {
+  width: 100%;
+  font-family: "SVN-GothamBook", sans-serif;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 8% 0 0%;
+  font-size: 10px;
+}
+.button-links .content .top-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 500/745;
+  background: url("https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/minh-phuong/TT1_7030.webp") no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.button-links .content .top-img .main-text {
+  font-size: 47px;
+  font-family: "UVN Buc Thu", sans-serif;
+  line-height: 0.9;
+  color: #845d34;
+  margin-bottom: 22%;
+  transform: rotate(-6deg);
+}
+.button-links .content .divider-line {
+  margin-top: 10%;
+}
+.button-links .content .divider-line img {
+  max-width: 174px;
+  width: 100%;
+  height: auto;
+}
+.button-links .content .link-box .description {
+  font-size: 10.6px;
+  line-height: 1.8;
+  margin: 8% 0 4%;
+  text-transform: uppercase;
+  color: #231f20;
+}
+.button-links .content .btn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8%;
+}
+.button-links .content .btn-box .action-btn {
+  width: 55%;
+  font-family: "SVN-GothamBook", sans-serif;
+  text-decoration: none;
+  padding: 1.5% 0 2%;
+  background: #5e0d10;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 300;
+  font-size: 10.6px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+  margin: 2% 0 2%;
+  display: block;
+}
+.button-links .content .bottom-img {
+  width: 100%;
+  aspect-ratio: 500/177;
+  overflow: hidden;
+}
+.button-links .content .bottom-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 500px) {
+  .button-links .content .top-img .main-text {
+    font-size: 9.4vw;
+  }
+  .button-links .content .divider-line img {
+    max-width: 34.8vw;
+  }
+  .button-links .content .link-box .description {
+    font-size: 2.12vw;
+  }
+  .button-links .content .btn-box .action-btn {
+    font-size: 2.12vw;
+  }
+}
+
+.qrcode-box {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.qrcode-box .item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qrcode-box .item .info {
+  margin-bottom: 2%;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.qrcode-box .item .qrcode-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.qrcode-box .item .qrcode-img img {
+  width: 30%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+div:where(.swal2-container) div:where(.swal2-html-container) {
+  padding: 0 !important;
+}
+
+/* QR code */
+div:where(.swal2-container) img:where(.swal2-image) {
+  margin: 0 auto 1em !important;
+}
+
+@media (max-width: 500px) {
+  div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+    font-size: 3.2vw;
+  }
+  .qrcode-box .item .info {
+    font-size: 2.8vw;
+  }
+  div:where(.swal2-container) div:where(.swal2-actions) {
+    margin: 4vw;
+  }
+}
+.end {
+  width: 100%;
+}
+.end .content {
+  width: 100%;
+  color: white;
+  padding: 0 8%;
+  font-family: "SVN-GothamBook", sans-serif;
+}
+.end .content p {
+  font-size: 9.11px;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+.end .content .importan {
+  font-weight: 700;
+}
+.end .content .divider {
+  margin: 10% 0;
+}
+.end .content .divider img {
+  width: 8.5px;
+  height: auto;
+}
+@media (max-width: 500px) {
+  .end .content p {
+    font-size: 1.822vw;
+  }
+  .end .content .divider img {
+    width: 1.7vw;
+  }
+}
+
+.letter-section {
+  width: 100%;
+  max-width: 500px;
+}
+.letter-section .content {
+  width: 100%;
+  aspect-ratio: 500/887;
+  background: url("https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/minh-phuong/letter.webp") no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #eae0cf;
+  font-family: "SVN-GothamBook", sans-serif;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.439);
+  position: relative;
+  cursor: pointer;
+}
+.letter-section .content .couple-names {
+  margin-bottom: 18%;
+}
+.letter-section .content .couple-names img {
+  max-width: 376px;
+  width: 100%;
+  height: auto;
+}
+.letter-section .content .subtext {
+  margin-bottom: 5%;
+}
+.letter-section .content .subtext .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4%;
+}
+.letter-section .content .subtext .icon img {
+  max-width: 25px;
+  width: 100%;
+  height: auto;
+}
+.letter-section .content .subtext .text {
+  font-size: 9.11px;
+  text-align: center;
+}
+.letter-section .content .btn-group {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 3%;
+}
+.letter-section .content .btn-group button {
+  width: 30%;
+  display: block;
+  background-color: #eae0cf;
+  outline: none;
+  padding: 1.5%;
+  color: #5e0d10;
+  border-radius: 20px;
+  text-decoration: none;
+  border: none;
+  text-transform: uppercase;
+  font-size: 9.11px;
+}
+@media (max-width: 500px) {
+  .letter-section .content .couple-names {
+    font-size: 4vw;
+    letter-spacing: 0.4vw;
+  }
+  .letter-section .content .couple-names span {
+    font-size: 2.8vw;
+  }
+  .letter-section .content .date {
+    font-size: 2.4vw;
+    letter-spacing: 0.2vw;
+  }
+  .letter-section .content .loveanyway img {
+    max-width: 33vw;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

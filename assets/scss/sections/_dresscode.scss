@@ -1,0 +1,105 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.dresscode {
+    width: 100%;
+    aspect-ratio: 500 / 350;
+    // background: url('../../assets/images/base_bg.webp') repeat-y center top / 100% auto;
+    .content {
+        width: 100%;
+        .cats-box {
+            margin-top: 4%;
+            img {
+                max-width: 215px;
+                width: 100%;
+                height: auto;
+            }
+        }
+        .title {
+            line-height: 1;
+            margin-bottom: 3%;
+        }
+        .subtext {
+            color: $text-color;
+            font-family: $font-GothamBook;
+            font-size: 10px;
+            line-height: 1.8;
+        }
+        
+
+        .color-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5% auto 14%;
+            width: 100%;
+            transform: translateX(1%);
+
+            .color-circle {
+                max-width: 36px;
+                width: 100%;
+                aspect-ratio: 1;
+                border-radius: 50%;
+                transition: transform 0.3s ease;
+                margin-left: -1%;
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .couple-imgs {
+            width: 100%;
+            .row {
+                display: flex;
+                perspective: 1000px;
+
+                .col {
+                    width: 50%;
+                    aspect-ratio: 1;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+               
+                &:nth-child(2) {
+                    aspect-ratio: 500 / 250;
+                    .col {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+               
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            .cats-box {
+                img {
+                    max-width: calc((215 / 500) * 100vw);
+                }
+            }
+            .subtext {
+                font-size: calc((10 / 500) * 100vw);
+            }
+            
+            .color-grid {
+                .color-circle { 
+                    max-width: calc((36 / 500) * 100vw);
+                }
+            }
+
+            .couple-img {
+                max-width: calc((394 / 500) * 100vw);
+                img {
+                    object-position: calc((-57 / 500) * 100vw) 14%;
+                }
+            }
+        }
+    }
+}

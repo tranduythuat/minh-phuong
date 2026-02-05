@@ -1,0 +1,64 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.hero {
+    width: 100%;
+    .content {
+        aspect-ratio: 500 / 747;
+        background: linear-gradient(
+            to bottom,
+            rgba(234, 224, 207, 0),
+            rgba(234, 224, 207, 0.181),
+            #eae0cfff
+          ), url('https://pub-d341ea7ec201435598469d75d8c4a056.r2.dev/minh-phuong/hero.jpg') no-repeat center / cover;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        perspective: 1000px;
+        .main-text {
+            font-size: 104px;
+            font-family: $font-MTD-Doppelganger;
+        }
+
+        .divider {
+            margin: 1% 0 5%;
+            img {
+                max-width: 12px;
+                width: 100%;
+                height: auto;
+            }
+        }
+        .subtext {
+            font-size: 13px;
+            color: #231f20ff;
+            font-family: $font-Gotham;
+            margin-bottom: 10%;
+            line-height: 1.5;
+            span {
+                font-family: $font-gothamLight;
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            .main-text {
+                font-size: calc((104 / 500) * 100vw);
+            }
+    
+            .divider {
+                img {
+                    max-width: calc((12 / 500) * 100vw);;
+                }
+            }
+            .subtext {
+                font-size: calc((13 / 500) * 100vw);
+            }
+
+        }
+    }
+}

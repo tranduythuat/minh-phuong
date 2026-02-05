@@ -1,0 +1,120 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.our-story {
+    width: 100%;
+    .content {
+        width: 100%;
+        padding: 10% 8%;
+        .title {
+            margin-bottom: 8%;
+        }
+        .quote-text {
+            font-size: 16px;
+            color: $text-color;
+            font-family: $font-GothamBook;
+        }
+        .story-section {
+            .quote-icon {
+                margin-bottom: 3% ;
+                img {
+                    max-width: 47px;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .quote-text {
+                font-family: $font-gothamLight;
+                font-size: 13px;
+                color: $text-color;
+                margin-bottom: 3%;
+                line-height: 1.5;
+            }
+            .img-grid {
+                display: flex;
+                gap: 1%;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            &:first-of-type {
+                margin-bottom: 10%;
+                .quote-icon {
+                   text-align: left;
+                }
+                .quote-text {
+                    text-align: left;
+                }
+                .img-grid {
+                    .img-wrapper:first-child {
+                        max-width: 238px;
+                    }
+                    .img-wrapper:last-child {
+                        max-width: 106px;
+                    }
+                }
+            }
+            &:last-of-type {
+                .quote-icon {
+                   text-align: right;
+                   img {
+                        transform: scaleX(-1);
+                   }
+                }
+                .quote-text {
+                    text-align: right;
+                }
+                .img-grid {
+                    justify-content: flex-end;
+
+                    .img-wrapper:first-child {
+                        max-width: 156px;
+                    }
+                    .img-wrapper:last-child {
+                        max-width: 156px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            .quote-text {
+                font-size: calc((16 / 500) * 100vw);
+            }
+            .story-section {
+                .quote-icon {
+                    img {
+                        max-width: calc((47 / 500) * 100vw);
+                    }
+                }
+                .quote-text {
+                    font-size: calc((13 / 500) * 100vw);
+                }
+                &:first-of-type {
+                    .img-grid {
+                        .img-wrapper:first-child {
+                            max-width: calc((238 / 500) * 100vw);
+                        }
+                        .img-wrapper:last-child {
+                            max-width: calc((106 / 500) * 100vw);
+                        }
+                    }
+                }
+                &:last-of-type {
+                    .img-grid {
+                        .img-wrapper:first-child {
+                            max-width: calc((156 / 500) * 100vw);
+                        }
+                        .img-wrapper:last-child {
+                            max-width: calc((156 / 500) * 100vw);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
