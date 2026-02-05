@@ -188,7 +188,7 @@ async function handleFormSubmit(e) {
     },
   });
 
-  const url = "https://script.google.com/macros/s/AKfycbyOFmUbZd2LwQQGtX0N5aNc7PcGONw6wBLOe9hvwOU_rxcWK_Lv4tPvx5_e1b6kJz9rtA/exec?sheet=confirm";
+  const url = "?sheet=confirm";
 
   try {
     const res = await fetch(url, {
