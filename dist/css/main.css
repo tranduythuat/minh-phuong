@@ -506,7 +506,6 @@ header {
   align-items: center;
   margin: 5% auto 14%;
   width: 100%;
-  transform: translateX(1%);
 }
 .dresscode .content .color-grid .color-circle {
   max-width: 36px;
@@ -514,7 +513,6 @@ header {
   aspect-ratio: 1;
   border-radius: 50%;
   transition: transform 0.3s ease;
-  margin-left: -1%;
 }
 .dresscode .content .color-grid .color-circle:first-child {
   margin-left: 0;

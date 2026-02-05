@@ -79,11 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // });
 
   // // Thêm các animation theo thứ tự
-  // tl_dresscode.from(".first", { y: -100, opacity: 0 })        // box đỏ bay xuống
-  //   .from(".second", { y: -100, opacity: 0 }, "-=0.3")       // box xanh bay từ trái
-  //   .from(".third", { y: -100, opacity: 0 }, "-=0.3")       // box xanh bay từ trái
-  //   .from(".four", { y: -100, opacity: 0 }, "-=0.3")       // box xanh bay từ trái
-  //   .from(".five", { y: -100, opacity: 0 }, "-=0.3");     // box xanh bay từ trái
+  // tl_dresscode.from(".first", { x: -100, opacity: 0 })        // box đỏ bay xuống
+  //   .from(".second", { x: -100, opacity: 0 }, "-=0.3")       // box xanh bay từ trái
+  //   .from(".third", { x: -100, opacity: 0 }, "-=0.3")       // box xanh bay từ trái
+  //   .from(".four", { x: -100, opacity: 0 }, "-=0.3")       // box xanh bay từ trái
+  //   .from(".five", { x: -100, opacity: 0 }, "-=0.3");     // box xanh bay từ trái
 
   async function playMusic(e) {
     const music = document.getElementById('audio');
