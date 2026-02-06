@@ -60,7 +60,7 @@
 
                 .col {
                     width: 50%;
-                    aspect-ratio: 1;
+                    aspect-ratio: 1 / 1.1;
                     overflow: hidden;
                     img {
                         width: 100%;
@@ -71,10 +71,10 @@
                
                 &:nth-child(2) {
                     width: 100%;
-                    aspect-ratio: 500 / 250;
+                    aspect-ratio: 500 / 260;
                     .col {
                         width: 100%;
-                        aspect-ratio: 500 / 250;
+                        aspect-ratio: 500 / 260;
                     }
                 }
             }

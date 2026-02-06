@@ -142,10 +142,11 @@
             .form-group.dietary {
                 margin: 8% 0 2%;
                 .dietary-label {
-                    font-size: 15px;
+                    font-size: 14px;
                     font-family: $font-gothamLight;
-                    margin-bottom: 4%;
+                    margin-bottom: 2%;
                     line-height: 1.5;
+                    text-transform: uppercase;
                 }
             }
 
@@ -246,7 +247,7 @@
 
                 .form-group.dietary {
                     .dietary-label {
-                        font-size: calc((15 / 500) * 100vw);
+                        font-size: calc((14 / 500) * 100vw);
                     }
                 }
 

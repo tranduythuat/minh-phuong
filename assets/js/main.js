@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // },
     autoplay: {
       delay: 3000, // thời gian giữa các lần chuyển (ms)
-      disableOnInteraction: false, // không tắt khi người dùng bấm
+      disableOnInteraction: true, // không tắt khi người dùng bấm
     },
 
     loop: true, // lặp lại ảnh

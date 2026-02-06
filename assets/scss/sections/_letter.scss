@@ -21,6 +21,8 @@
         cursor: pointer;
         .couple-names {
             margin-bottom: 18%;
+            position: relative;
+            right: -2.5%;
             img {
                 max-width: 376px;
                 width: 100%;
@@ -39,8 +41,10 @@
                 }
             }
             .text {
-                font-size: 9.11px;
+                font-size: 11px;
                 text-align: center;
+                text-transform: uppercase;
+                line-height: 1.5;
             }
         }
 
@@ -60,7 +64,7 @@
                 text-decoration: none;
                 border: none;
                 text-transform: uppercase;
-                font-size: 9.11px;
+                font-size: 11px;
             }
         }
     }
@@ -74,17 +78,29 @@
                     font-size: calc((14 / 500) * 100vw);
                 }
             }
-    
-            .date {
-                font-size: calc((12 / 500) * 100vw);
-                letter-spacing: calc((1 / 500) * 100vw);
-            }
 
-            .loveanyway {
+            .couple-names {
                 img {
-                    max-width: calc((165 / 500) * 100vw);
+                    max-width: calc((376 / 500) * 100vw);
                 }
             }
+            .subtext {
+                .icon {
+                    img {
+                        max-width: calc((25 / 500) * 100vw);
+                    }
+                }
+                .text {
+                    font-size: calc((11 / 500) * 100vw);
+                }
+            }
+    
+            .btn-group {
+                button {
+                    font-size: calc((11 / 500) * 100vw);
+                }
+            }
+    
         }
     }
 }

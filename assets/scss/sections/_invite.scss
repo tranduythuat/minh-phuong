@@ -26,11 +26,15 @@
             .datetime-block {
                 .label {
                     margin-bottom: 2%;
-                    font-size: 10px;
+                    font-size: 13px;
                     color: #231f20ff;
                 }
                 .time {
-                    font-family: 'Times New Roman', Times, serif;
+                    // font-family: 'Times New Roman', Times, serif;
+                    // font-family: $font-MTD-Doppelganger;
+                    // font-family: $font-1FTV-VIP-Qerginas-Frenchstyle-Serif;
+                    font-family: $font-1FTV-Blushing-Rose;
+                    // font-family: $font-ICIELBCOLDSTYLE;
                     font-size: 27px;
                     text-transform: uppercase;
                 }
@@ -87,7 +91,7 @@
             .location-block {
                 .datetime-block {
                     .label {
-                        font-size: calc((10 / 500) * 100vw);
+                        font-size: calc((13 / 500) * 100vw);
                     }
                     .time {
                         font-size: calc((27 / 500) * 100vw);;
