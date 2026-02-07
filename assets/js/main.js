@@ -137,8 +137,13 @@ document.addEventListener("DOMContentLoaded", () => {
   btn.addEventListener('click', toggleMusic);
 
   const form = document.forms["rsvpForm"];
+  const formVi = document.forms["rsvpForm-vi"];
   if (form) {
-    form.addEventListener("submit", (e) => handleFormSubmit(e));
+    form.addEventListener("submit", (e) => handleFormSubmit(e, 'en'));
+  }
+
+  if (formVi) {
+    formVi.addEventListener("submit", (e) => handleFormSubmit(e, 'vi'));
   }
 });
 
@@ -168,7 +173,7 @@ function toggleQR(e) {
   });
 }
 
-async function handleFormSubmit(e) {
+async function handleFormSubmit(e, lang) {
   e.preventDefault();
 
   const form = e.target;
@@ -179,18 +184,16 @@ async function handleFormSubmit(e) {
   const {
     name: name,
     confirm: confirm,
-    phone: phone,
-    vegetarian: vegetarian,
-    guest_info: guest_info,
-    other: other,
+    guest_number: guest_number,
+    dietary: dietary,
     wish: wish,
   } = data;
   console.log("🚀 ~ handleFormSubmit 2~ data:", data);
 
   // Thông báo khi bắt đầu gửi
   Swal.fire({
-    title: 'Đang gửi ...',
-    text: "Vui lòng chờ trong giây lát",
+    ttitle: lang === 'vi'? 'Đang gửi ...': 'Sending ...',
+    text: lang === 'vi'? "Vui lòng chờ trong giây lát": 'Please wait a moment',
     icon: "info",
     allowOutsideClick: false,
     didOpen: () => {
@@ -198,18 +201,22 @@ async function handleFormSubmit(e) {
     },
   });
 
-  const url = "?sheet=confirm";
+  const SHEET_ENDPOINTS = {
+    en: "https://script.google.com/macros/s/AKfycbxmauPNoKgDCYQLlk6riKKv6LcRBZvHskUP87Yd1isz0RqA082CkboCJVXBKrUZ38Hm/exec?sheet=en",
+    vi: "https://script.google.com/macros/s/AKfycbxmauPNoKgDCYQLlk6riKKv6LcRBZvHskUP87Yd1isz0RqA082CkboCJVXBKrUZ38Hm/exec?sheet=vi",
+  };
+
+  const sheetURL = SHEET_ENDPOINTS[lang] || SHEET_ENDPOINTS.en;
 
   try {
-    const res = await fetch(url, {
+    const res = await fetch(sheetURL, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
         name,
         confirm,
-        phone,
-        guest_info,
-        vegetarian,
+        guest_number,
+        dietary,
         wish
       }),
     });
@@ -221,7 +228,7 @@ async function handleFormSubmit(e) {
         title: "Lỗi!",
         text: "OPPS! Không tìm thấy server",
         icon: "error",
-        confirmButtonText: "Thử lại",
+        confirmButtonText: lang === 'vi'? "Thử lại": "Try again",
         confirmButtonColor: "#000",
       });
       return;
@@ -231,8 +238,8 @@ async function handleFormSubmit(e) {
 
     // Thông báo thành công
     Swal.fire({
-      title: "Thành công!",
-      text: "Cảm ơn bạn đã gửi phản hồi, thông tin đã được gửi đến dâu rể rồi nha",
+      title: lang === 'vi'? "Thành công!":  "Success!",
+      text: lang === 'vi'? "Cảm ơn bạn đã xác nhận. Thông tin đã được chuyển đến cô dâu và chú rể rồi nha.": "Thank you for your confirmation. Your information has been forwarded to the bride and groom.",
       icon: "success",
       confirmButtonText: "OK",
       confirmButtonColor: "#000",
@@ -242,10 +249,10 @@ async function handleFormSubmit(e) {
 
     // Thông báo lỗi
     Swal.fire({
-      title: "Lỗi!",
-      text: "OPPS! Đã xảy ra lỗi: " + error.message,
+      title: lang === 'vi'? "Lỗi!": "Error!",
+      text: "OPPS! Something went wrong: " + error.message,
       icon: "error",
-      confirmButtonText: "Thử lại",
+      confirmButtonText: lang === 'vi'? "Thử lại": "Try again",
       confirmButtonColor: "#000",
     });
   }
